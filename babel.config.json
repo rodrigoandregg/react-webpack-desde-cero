@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        // incluir polyfills en archivos JS de salida para soportar nuevas características de JS
+        "corejs": 3.29,
+        // inyecta los polyfills solo si la nuevas características del lenguaje se están usando
+        "useBuiltIns": "usage"
+      }
+    ],
+    [
+      "@babel/preset-react",
+      {
+        // evita tener que importar React desde "react"
+        "runtime": "automatic"
+      }
+    ]
+  ]
+}
