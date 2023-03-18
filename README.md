@@ -18,7 +18,7 @@
 **Webpack:**
 
 - webpack
-- webpack/cli
+- webpack-cli
 - webpack-dev-server
 - webpack-merge
 
