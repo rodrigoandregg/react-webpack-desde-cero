@@ -277,6 +277,12 @@ module.exports = merge(common, devConfig);
 
 ### Preparar archivo `index.jsx` o `main.jsx`:
 
+- Importar React desde "react" (_solo en archivo principal_):
+
+  ```jsx
+  import React from "react";
+  ```
+
 - Importar **ReactDOM** desde "react-dom/client"
   ```jsx
   import * as ReactDOM from "react-dom/client";
@@ -298,6 +304,7 @@ module.exports = merge(common, devConfig);
 ### Archivo **`index.jsx`** o **`main.jsx`**:
 
 ```jsx
+import React from "react";
 import * as ReactDOM from "react-dom/client";
 import App from "./App";
 
