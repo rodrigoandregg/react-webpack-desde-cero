@@ -103,6 +103,7 @@ module.exports = {
     /* nombre del empaqutado generado */
     filename: "[name].[contenthash].js",
     /* directorio público */
+    /* al dejar un las comillas vacias indicamos que el direcctorio publico es donde indica el output */
     publicPath: "",
     clean: true,
   },
@@ -113,7 +114,7 @@ module.exports = {
       {
         /* nombre del loader */
         use: "babel-loader",
-        /* extensiones de archivos que utilizarán el  */loader
+        /* extensiones de archivos que utilizarán el loader */
         test: /.(js|jsx)$/,
         /* excluir directorio dependencias */
         exclude: /node_modules/,
