@@ -59,7 +59,7 @@
 
 ## Listado de navegadores en `package.json`
 
-```json
+```js
 /* soporte a navegadores que tengan más de 0,25% de  cuota de mercado */
 /* que no estén muertos, que actualizaciones desde  hace 2 años hasta hoy */
 /* excluir Internet Explorer 11 xD */
@@ -229,7 +229,7 @@ module.exports = merge(common, devConfig);
 
 `babel.config.json`
 
-```json
+```js
 {
   "presets": [
     [
@@ -274,7 +274,7 @@ module.exports = merge(common, devConfig);
   <script type="module" src="../src/index.jsx"><script>
   ```
 
-### Preparar archivo `index.sjx` o `main.jsx`:
+### Preparar archivo `index.jsx` o `main.jsx`:
 
 - Importar **ReactDOM** desde "react-dom/client"
   ```jsx
@@ -294,7 +294,7 @@ module.exports = merge(common, devConfig);
   root.render(<App />);
   ```
 
-### Archivo **`index.sjx`** o **`main.jsx`**:
+### Archivo **`index.jsx`** o **`main.jsx`**:
 
 ```jsx
 import * as ReactDOM from "react-dom/client";
