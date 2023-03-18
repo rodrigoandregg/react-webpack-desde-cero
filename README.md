@@ -60,8 +60,8 @@
 ## Listado de navegadores en `package.json`
 
 ```json
-/* soporte a navegadores que tengan más de 0,25% de  */cuota de mercado
-/* que no estén muertos, que actualizaciones desde  */hace 2 años hasta hoy
+/* soporte a navegadores que tengan más de 0,25% de  cuota de mercado */
+/* que no estén muertos, que actualizaciones desde  hace 2 años hasta hoy */
 /* excluir Internet Explorer 11 xD */
 "browserslist": "> 0.25%, not dead, not ie 11"
 ```
@@ -198,16 +198,16 @@ const devConfig = {
   },
   /* target: "web", */
   plugins: [
-    /* evita que se recargue la página, impidiendo que  */se pierdan los estados de react
+    /* evita que se recargue la página, impidiendo que  se pierdan los estados de react */
     new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
   ],
-  /* permite tener los source maps como no  */empaquetados para poder debuguear de pana
+  /* permite tener los source maps como no  empaquetados para poder debuguear de pana */
   devtool: "eval-source-map",
   module: {
     rules: [
       {
-        /* siempre respetar este orden: style, css,  */sass
+        /* siempre respetar este orden: style, css, sass */
         use: ["style-loader", "css-loader", "sass-loader"],
         test: /.(css|sass|scss)$/,
       },
@@ -235,9 +235,9 @@ module.exports = merge(common, devConfig);
     [
       "@babel/preset-env",
       {
-        /* incluir polyfills en archivos JS de salida  */para soportar nuevas características de JS
+        /* incluir polyfills en archivos JS de salida para soportar nuevas características de JS */
         "corejs": 3.29,
-        /* inyecta los polyfills solo si la nuevas  */características del lenguaje se están usando
+        /* inyecta los polyfills solo si la nuevas características del lenguaje se están usando */
         "useBuiltIns": "usage"
       }
     ],
