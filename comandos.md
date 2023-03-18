@@ -28,7 +28,7 @@ instalar dependencias en modo desarrollo:
 npm i webpack webpack-cli webpack-dev-server webpack-merge @babel/core @babel/preset-env @babel/preset-react babel-loader style-loader css-loader sass sass-loader -D
 ```
 
-instalar plugins como en modo desarrollo:
+instalar plugins en modo desarrollo:
 
 ```
 npm i html-webpack-plugin @pmmmwh/react-refresh-webpack-plugin mini-css-extract-plugin -D
