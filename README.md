@@ -126,11 +126,11 @@ module.exports = {
     ],
   },
   resolve: {
-    /* evita tener que definir extensiones en  */importaciones
+    /* evita tener que definir extensiones en importaciones */
     extensions: [".js", ".jsx", ".json"],
   },
   plugins: [
-    /* automatiza el cambio de nombre en la  */importación del js dentro de index.html
+    /* automatiza el cambio de nombre en la importación del js dentro de index.html */
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
@@ -154,7 +154,7 @@ const prodConfig = {
   mode: "production",
   devtool: "source-map",
   optimization: {
-    /* el empaquetado nuestro y el de dependencias  */externas se separan para mejorar tiempos de carga
+    /* el empaquetado nuestro y el de dependencias externas se separan para mejorar tiempos de carga */
     splitChunks: {
       chunks: "all",
     },
@@ -163,7 +163,7 @@ const prodConfig = {
   module: {
     rules: [
       {
-        /* siempre respetar este orden: style, css,  */sass
+        /* siempre respetar este orden: style, css, sass */
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         test: /.(css|sass|scss)$/,
       },
