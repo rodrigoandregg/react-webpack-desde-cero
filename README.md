@@ -130,7 +130,7 @@ module.exports = {
     extensions: [".js", ".jsx", ".json"],
   },
   plugins: [
-    /* automatiza el cambio de nombre en la  */importación del js dentro de index.html
+    /* automatiza el cambio de nombre en la importación del js dentro de index.html */
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
