@@ -40,6 +40,8 @@ npm i html-webpack-plugin @pmmmwh/react-refresh-webpack-plugin mini-css-extract-
 
 Stranger! What you need that for? going hunting an elephant? 🐘
 
+Un comando para encontrarlos, un comando para atraerlos a todos y atarlos en las tinieblas en la Tierra de Mordor donde se extienden las Sombras:
+
 ```
 mkdir config public src && touch config/webpack.common.js config/webpack.prod.js config/webpack.dev.js public/index.html src/index.jsx src/App.jsx src/App.scss babel.config.json && npm i react react-dom core-js && npm i webpack webpack-cli webpack-dev-server webpack-merge @babel/core @babel/preset-env @babel/preset-react babel-loader style-loader css-loader sass sass-loader html-webpack-plugin @pmmmwh/react-refresh-webpack-plugin mini-css-extract-plugin -D
 ```
