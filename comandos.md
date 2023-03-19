@@ -46,6 +46,6 @@ Un comando para encontrarlos, un comando para atraerlos a todos y atarlos en las
 mkdir config public src && touch config/webpack.common.js config/webpack.prod.js config/webpack.dev.js public/index.html src/index.jsx src/App.jsx src/App.scss babel.config.json && npm i react react-dom core-js && npm i webpack webpack-cli webpack-dev-server webpack-merge @babel/core @babel/preset-env @babel/preset-react babel-loader style-loader css-loader sass sass-loader html-webpack-plugin @pmmmwh/react-refresh-webpack-plugin mini-css-extract-plugin -D
 ```
 
-![Ah, the choice of an avid gun collector! It's a nice gun, mate!](https://media.tenor.com/Kh5TUgbK9UAAAAAd/dances-dancing.gif)
+![Ah, the choice of an avid gun collector! It's a nice gun, mate!](./public/dances-dancing.gif)
 
 🔥 Hahaha Thank you! 🔥
