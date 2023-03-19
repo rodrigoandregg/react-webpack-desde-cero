@@ -113,18 +113,18 @@ El archivo de configuración recién creado debería verse asi:
 
 ```js
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: ["plugin:react/recommended", "standard"],
-  overrides: [],
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-  },
-  plugins: ["react"],
-  rules: {},
+	env: {
+		browser: true,
+		es2021: true,
+	},
+	extends: ['plugin:react/recommended', 'standard'],
+	overrides: [],
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+	},
+	plugins: ['react'],
+	rules: {},
 };
 ```
 
@@ -145,7 +145,7 @@ Para que **ESLint** nos marque nuestros errores en tiempo real, y ver de qué se
 ESLint, por defecto, nos marcará como error no tener la línea que importa React desde "react":
 
 ```jsx
-import React from "react";
+import React from 'react';
 ```
 
 para solucionarlo correctamente añadiremos el plugin `plugin:react/jsx-runtime` en el archivo de configuración de **ESLint**, en el array de `extends: []`.
@@ -235,10 +235,10 @@ Nuestro achivo `.pretierrc` tendría que verse asi:
 
 ```json
 {
-  "useTabs": true,
-  "singleQuote": true,
-  "jsxSingleQuote": true,
-  "arrowParens": "avoid"
+	"useTabs": true,
+	"singleQuote": true,
+	"jsxSingleQuote": true,
+	"arrowParens": "avoid"
 }
 ```
 
@@ -277,28 +277,28 @@ El archivo `.eslint.js` final se vería asi:
 
 ```js
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  setings: {
-    react: {
-      version: "detect",
-    },
-  },
-  extends: [
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "standard",
-    "eslint-config-prettier",
-  ],
-  overrides: [],
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-  },
-  plugins: ["react"],
-  rules: {},
+	env: {
+		browser: true,
+		es2021: true,
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
+	},
+	extends: [
+		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
+		'standard',
+		'eslint-config-prettier',
+	],
+	overrides: [],
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+	},
+	plugins: ['react'],
+	rules: {},
 };
 ```
 

@@ -87,54 +87,54 @@
 
 ```js
 /* importar módulo resolve de node */
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /* para el auto completado xD */
 /** @type {import('webpack').Configuration} */
 
 module.exports = {
-  /* punto de entrada */
-  entry: "./src/index.jsx",
-  /* punto de salida */
-  output: {
-    /* dirección absoluta del archivo de salida */
-    path: path.resolve(__dirname, "../dist"),
-    /* nombre del empaqutado generado */
-    filename: "[name].[contenthash].js",
-    /* directorio público */
-    /* al dejar un las comillas vacias indicamos que el direcctorio publico es donde indica el output */
-    publicPath: "",
-    clean: true,
-  },
+	/* punto de entrada */
+	entry: './src/index.jsx',
+	/* punto de salida */
+	output: {
+		/* dirección absoluta del archivo de salida */
+		path: path.resolve(__dirname, '../dist'),
+		/* nombre del empaqutado generado */
+		filename: '[name].[contenthash].js',
+		/* directorio público */
+		/* al dejar un las comillas vacias indicamos que el direcctorio publico es donde indica el output */
+		publicPath: '',
+		clean: true,
+	},
 
-  /* configurar los loaders */
-  module: {
-    rules: [
-      {
-        /* nombre del loader */
-        use: "babel-loader",
-        /* extensiones de archivos que utilizarán el loader */
-        test: /.(js|jsx)$/,
-        /* excluir directorio dependencias */
-        exclude: /node_modules/,
-      },
-      {
-        type: "asset",
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-      },
-    ],
-  },
-  resolve: {
-    /* evita tener que definir extensiones en importaciones */
-    extensions: [".js", ".jsx", ".json"],
-  },
-  plugins: [
-    /* automatiza el cambio de nombre en la importación del js dentro de index.html */
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
-  ],
+	/* configurar los loaders */
+	module: {
+		rules: [
+			{
+				/* nombre del loader */
+				use: 'babel-loader',
+				/* extensiones de archivos que utilizarán el loader */
+				test: /.(js|jsx)$/,
+				/* excluir directorio dependencias */
+				exclude: /node_modules/,
+			},
+			{
+				type: 'asset',
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+			},
+		],
+	},
+	resolve: {
+		/* evita tener que definir extensiones en importaciones */
+		extensions: ['.js', '.jsx', '.json'],
+	},
+	plugins: [
+		/* automatiza el cambio de nombre en la importación del js dentro de index.html */
+		new HtmlWebpackPlugin({
+			template: './public/index.html',
+		}),
+	],
 };
 ```
 
@@ -143,32 +143,32 @@ module.exports = {
 `config/webpack.prod.js`
 
 ```js
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common');
 
 /* para el auto completado xD */
 /** @type {import('webpack').Configuration} */
 
 const prodConfig = {
-  mode: "production",
-  devtool: "source-map",
-  optimization: {
-    /* el empaquetado nuestro y el de dependencias externas se separan para mejorar tiempos de carga */
-    splitChunks: {
-      chunks: "all",
-    },
-  },
-  plugins: [new MiniCssExtractPlugin()],
-  module: {
-    rules: [
-      {
-        /* siempre respetar este orden: style, css, sass */
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-        test: /.(css|sass|scss)$/,
-      },
-    ],
-  },
+	mode: 'production',
+	devtool: 'source-map',
+	optimization: {
+		/* el empaquetado nuestro y el de dependencias externas se separan para mejorar tiempos de carga */
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
+	plugins: [new MiniCssExtractPlugin()],
+	module: {
+		rules: [
+			{
+				/* siempre respetar este orden: style, css, sass */
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+				test: /.(css|sass|scss)$/,
+			},
+		],
+	},
 };
 
 /* webpack-merge mezcla los archivos de configuración */
@@ -180,40 +180,40 @@ module.exports = merge(common, prodConfig);
 `config/webpack.dev.js`
 
 ```js
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common");
-const path = require("path");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const { HotModuleReplacementPlugin } = require("webpack");
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common');
+const path = require('path');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const { HotModuleReplacementPlugin } = require('webpack');
 
 /* para el auto completado xD */
 /** @type {import('webpack').Configuration} */
 
 const devConfig = {
-  mode: "development",
-  devServer: {
-    allowedHosts: path.join(__dirname, "../dist"),
-    port: 3000,
-    /*open: "google-chrome", */
-    hot: true,
-  },
-  /* target: "web", */
-  plugins: [
-    /* evita que se recargue la página, impidiendo que  se pierdan los estados de react */
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin(),
-  ],
-  /* permite tener los source maps como no  empaquetados para poder debuguear de pana */
-  devtool: "eval-source-map",
-  module: {
-    rules: [
-      {
-        /* siempre respetar este orden: style, css, sass */
-        use: ["style-loader", "css-loader", "sass-loader"],
-        test: /.(css|sass|scss)$/,
-      },
-    ],
-  },
+	mode: 'development',
+	devServer: {
+		allowedHosts: path.join(__dirname, '../dist'),
+		port: 3000,
+		/*open: "google-chrome", */
+		hot: true,
+	},
+	/* target: "web", */
+	plugins: [
+		/* evita que se recargue la página, impidiendo que  se pierdan los estados de react */
+		new HotModuleReplacementPlugin(),
+		new ReactRefreshWebpackPlugin(),
+	],
+	/* permite tener los source maps como no  empaquetados para poder debuguear de pana */
+	devtool: 'eval-source-map',
+	module: {
+		rules: [
+			{
+				/* siempre respetar este orden: style, css, sass */
+				use: ['style-loader', 'css-loader', 'sass-loader'],
+				test: /.(css|sass|scss)$/,
+			},
+		],
+	},
 };
 
 /* webpack-merge mezcla los archivos de configuración */
@@ -280,23 +280,23 @@ module.exports = merge(common, devConfig);
 - Importar React desde "react" (_solo en archivo principal_):
 
   ```jsx
-  import React from "react";
+  import React from 'react';
   ```
 
 - Importar **ReactDOM** desde "react-dom/client"
   ```jsx
-  import * as ReactDOM from "react-dom/client";
+  import * as ReactDOM from 'react-dom/client';
   ```
 - Importar componente **App** desde **`App.jsx`**
 
   ```jsx
-  import App from "./App";
+  import App from './App';
   ```
 
 - Acceder al elemento con `id="root"` del **`index.html`** y renderizar nuestro componente **`App`** dentro de este
 
   ```jsx
-  const root = ReactDOM.createRoot(document.getElementById("root"));
+  const root = ReactDOM.createRoot(document.getElementById('root'));
 
   root.render(<App />);
   ```
@@ -304,16 +304,16 @@ module.exports = merge(common, devConfig);
 ### Archivo **`index.jsx`** o **`main.jsx`**:
 
 ```jsx
-import React from "react";
-import * as ReactDOM from "react-dom/client";
-import App from "./App";
+import React from 'react';
+import * as ReactDOM from 'react-dom/client';
+import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  /* el StricMode puede provocar que en veamos resultados dobles en consola (por ejemplo: console.log()'s y errores repetidos) pero se recomienda su uso para evitar problemas futuros*/
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	/* el StricMode puede provocar que en veamos resultados dobles en consola (por ejemplo: console.log()'s y errores repetidos) pero se recomienda su uso para evitar problemas futuros*/
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>
 );
 ```
 
@@ -331,11 +331,11 @@ root.render(
 
   ```jsx
   const App = () => {
-    return (
-      <div className="App">
-        <h1>¡Hola Mundo!</h1>
-      </div>
-    );
+  	return (
+  		<div className='App'>
+  			<h1>¡Hola Mundo!</h1>
+  		</div>
+  	);
   };
   ```
 
@@ -347,20 +347,20 @@ root.render(
 
 - Importar el archivo de estilos `Css` o `Scss`
   ```jsx
-  import "./App.scss";
+  import './App.scss';
   ```
 
 ### Archivo **`App.jsx`**:
 
 ```jsx
-import "./App.scss";
+import './App.scss';
 
 const App = () => {
-  return (
-    <div className="App">
-      <h1>¡Hola Mundo!</h1>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<h1>¡Hola Mundo!</h1>
+		</div>
+	);
 };
 
 export default App;
