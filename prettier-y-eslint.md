@@ -260,7 +260,7 @@ Instalar `eslint-config-prettier` con el siguiente comando:
 npm i -D eslint-config-prettier
 ```
 
-Y agregarlo a la configuración de eslint en el archivo `.eslint.js` junto a los demás:
+Y agregarlo a la configuración de eslint en el archivo `.eslintrc.js` junto a los demás:
 
 ```js
 	extends: [
@@ -273,18 +273,13 @@ Y agregarlo a la configuración de eslint en el archivo `.eslint.js` junto a los
 
 Lo que hará esto es, cuando haya conflictos entre **ESLint** y **Prettier** ganará la configuración del formateador y no habrá problemas, por ejemplo, con los "punto y coma".
 
-El archivo `.eslint.js` final se vería asi:
+El archivo `.eslintrc.js` se estaría viendo asi:
 
 ```js
 module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
-	},
-	settings: {
-		react: {
-			version: 'detect',
-		},
 	},
 	extends: [
 		'plugin:react/recommended',
@@ -316,6 +311,45 @@ En el archivo `package.json`:
   ```json
   "lint": "eslint --fix . --ext .js,.jsx"
   ```
+
+Al usar el script "lint" se mostrará un mensaje de advertencia diciendo que la versión de **React** no está especificada en la configuración de **ESLint**, para corregirlo agregamos este código al archivo `.eslintrc.js`
+
+```js
+	settings: {
+		react: {
+			version: 'detect',
+		},
+	},
+```
+
+Finalmente, el archivo de configuración de **ESLint** quedaría asi:
+
+```js
+module.exports = {
+	env: {
+		browser: true,
+		es2021: true,
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
+	},
+	extends: [
+		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
+		'standard',
+		'eslint-config-prettier',
+	],
+	overrides: [],
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+	},
+	plugins: ['react'],
+	rules: {},
+};
+```
 
 ### **Problema** (xD?):
 
