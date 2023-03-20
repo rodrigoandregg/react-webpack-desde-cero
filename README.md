@@ -184,7 +184,6 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const { HotModuleReplacementPlugin } = require('webpack');
 
 /* para el auto completado xD */
 /** @type {import('webpack').Configuration} */
@@ -199,11 +198,10 @@ const devConfig = {
 	},
 	/* target: "web", */
 	plugins: [
-		/* evita que se recargue la página, impidiendo que  se pierdan los estados de react */
-		new HotModuleReplacementPlugin(),
+		/* solo recarca los cambios y no lo demás, impidiendo que se pierdan los estados de react */
 		new ReactRefreshWebpackPlugin(),
 	],
-	/* permite tener los source maps como no  empaquetados para poder debuguear de pana */
+	/* permite tener los source maps como no empaquetados para poder debuguear de pana */
 	devtool: 'eval-source-map',
 	module: {
 		rules: [
@@ -236,7 +234,7 @@ module.exports = merge(common, devConfig);
     [
       "@babel/preset-env",
       {
-        /* incluir polyfills en archivos JS de salida para soportar nuevas características de JS */
+        /* incluir polyfills en archivos .js de salida para soportar nuevas características de JS */
         "corejs": 3.29,
         /* inyecta los polyfills solo si la nuevas características del lenguaje se están usando */
         "useBuiltIns": "usage"
@@ -245,7 +243,7 @@ module.exports = merge(common, devConfig);
     [
       "@babel/preset-react",
       {
-        /* evita tener que importar React desde "react" */
+        /* evita tener que importar React desde "react", excepto en el archivo principal */
         "runtime": "automatic"
       }
     ]

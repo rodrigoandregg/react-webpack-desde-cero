@@ -2,7 +2,6 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const { HotModuleReplacementPlugin } = require('webpack');
 
 // para el auto completado xD
 /** @type {import('webpack').Configuration} */
@@ -17,8 +16,7 @@ const devConfig = {
 	},
 	// target: "web",
 	plugins: [
-		// evita que se recargue la página, impidiendo que se pierdan los estados de react
-		new HotModuleReplacementPlugin(),
+		/* solo recarca los cambios y no lo demás, impidiendo que se pierdan los estados de react */
 		new ReactRefreshWebpackPlugin(),
 	],
 	// permite tener los source maps como no empaquetados para poder debuguear de pana
