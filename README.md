@@ -194,7 +194,6 @@ const devConfig = {
 		allowedHosts: path.join(__dirname, '../dist'),
 		port: 3000,
 		/*open: "google-chrome", */
-		hot: true,
 	},
 	/* target: "web", */
 	plugins: [
